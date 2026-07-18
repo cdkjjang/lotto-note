@@ -1,0 +1,46 @@
+/* Pretendard 웹폰트 — 사용자 OS와 무관하게 동일한 고품질 한글 타이포그래피 제공 */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+@import "tailwindcss";
+
+:root {
+  --background: #f4f7f4; /* 차분한 연녹색 종이 배경 */
+  --foreground: #1f2620;
+  --card: #ffffff;
+  --border: #dde5dd;
+  --accent: #1a8a54; /* 행운·당첨을 떠올리는 신뢰감 있는 초록 */
+  --accent-strong: #126b40;
+  --muted: #566056; /* 본문 대비(AA) 확보 */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-border-soft: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-muted: var(--muted);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #161a17;
+    --foreground: #e5eae5;
+    --card: #1f2521;
+    --border: #38423a;
+    --accent: #57c68a;
+    --accent-strong: #86d9ac;
+    --muted: #9aa89e;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  /* 모든 연령대가 읽기 편한 최소 16px */
+  font-size: 16px;
+  line-height: 1.7;
+  font-family:
+    "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic",
+    "맑은 고딕", system-ui, sans-serif;
+}
