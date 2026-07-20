@@ -9,7 +9,9 @@ const SITES = [
   { slug: "car", name: "자동차노트", url: "https://car.lifebanjang.com", desc: "자동차세·검사·과태료" },
   { slug: "saju", name: "사주노트", url: "https://saju.lifebanjang.com", desc: "사주 명식·오행·운세" },
   { slug: "salary", name: "급여노트", url: "https://salary.lifebanjang.com", desc: "실수령액·퇴직금·주휴수당" },
+  { slug: "tax", name: "세금노트", url: "https://tax.lifebanjang.com", desc: "연말정산·종합소득세·증여세" },
   { slug: "lotto", name: "로또노트", url: "https://lotto.lifebanjang.com", desc: "당첨번호·통계·번호생성" },
+  { slug: "baby", name: "육아노트", url: "https://baby.lifebanjang.com", desc: "육아휴직급여·부모급여·예방접종" },
 ];
 
 export default function FamilyLinks() {
