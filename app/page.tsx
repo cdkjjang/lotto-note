@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import AdSlot from "@/components/AdSlot";
 import Link from "next/link";
 import { LottoBalls } from "@/components/LottoBall";
 import { latestDraw, recentDraws, TOTAL_ROUNDS } from "@/lib/draws";
@@ -31,6 +33,10 @@ const TOOLS = [
     badge: "당첨확인",
   },
 ];
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function HomePage() {
   const latest = latestDraw;
@@ -177,6 +183,7 @@ export default function HomePage() {
           안에서 이용하세요.
         </p>
       </section>
+      <AdSlot slot="home-bottom" />
     </div>
   );
 }
