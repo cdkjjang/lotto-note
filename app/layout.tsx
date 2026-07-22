@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
@@ -33,15 +32,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className="h-full antialiased">
-      <body className="flex min-h-screen flex-col">
+      {/* 애드센스 로더 — 크롤러가 원본 HTML의 <head>에서 script 태그를 찾으므로
+          next/script(preload만 출력) 대신 원시 script 태그를 head에 직접 넣는다. */}
+      <head>
         {ADSENSE_CLIENT && (
-          <Script
+          <script
             async
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
             crossOrigin="anonymous"
-            strategy="afterInteractive"
           />
         )}
+      </head>
+      <body className="flex min-h-screen flex-col">
         <Header />
         <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-8">
           {children}
