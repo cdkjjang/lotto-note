@@ -1,5 +1,5 @@
 // 생활반장 노트 시리즈 크로스링크 — 전 사이트 공통 정본. CURRENT만 사이트별로 다르고
-// 나머지는 완전히 동일하다. 새 노트가 생기면 이 SITES 배열에 한 줄 추가 후 6개 사이트에 복사.
+// 나머지는 완전히 동일하다. 새 노트가 생기면 이 SITES 배열에 한 줄 추가 후 전 사이트에 복사.
 const CURRENT = "lotto";
 
 const SITES = [
@@ -13,6 +13,7 @@ const SITES = [
   { slug: "lotto", name: "로또노트", url: "https://lotto.lifebanjang.com", desc: "당첨번호·통계·번호생성" },
   { slug: "baby", name: "육아노트", url: "https://baby.lifebanjang.com", desc: "육아휴직급여·부모급여·예방접종" },
   { slug: "loan", name: "대출노트", url: "https://loan.lifebanjang.com", desc: "대출이자·중도상환·DSR" },
+  { slug: "youth", name: "청년정책노트", url: "https://youth.lifebanjang.com", desc: "청년적금·월세지원·K-패스" },
 ];
 
 export default function FamilyLinks() {
