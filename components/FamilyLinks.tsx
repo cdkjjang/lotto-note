@@ -14,6 +14,7 @@ const SITES = [
   { slug: "baby", name: "육아노트", url: "https://baby.lifebanjang.com", desc: "육아휴직급여·부모급여·예방접종" },
   { slug: "loan", name: "대출노트", url: "https://loan.lifebanjang.com", desc: "대출이자·중도상환·DSR" },
   { slug: "youth", name: "청년정책노트", url: "https://youth.lifebanjang.com", desc: "청년적금·월세지원·K-패스" },
+  { slug: "trip", name: "여행노트", url: "https://trip.lifebanjang.com", desc: "면세한도·기내반입·여권" },
 ];
 
 export default function FamilyLinks() {
