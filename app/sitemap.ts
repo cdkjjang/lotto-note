@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
-import { draws, latestDraw } from "@/lib/draws";
+import { INDEXED_DRAW_COUNT, draws, latestDraw } from "@/lib/draws";
 import { guides } from "@/lib/guides";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -26,12 +26,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const drawPages: MetadataRoute.Sitemap = draws.map((d) => ({
-    url: `${SITE_URL}/numbers/${d.round}`,
-    lastModified: new Date(d.date),
-    changeFrequency: "yearly",
-    priority: 0.5,
-  }));
+  // 회차 상세는 1,200여 개가 서로 비슷한 얇은 페이지라 전부 색인하면
+  // '가치 낮은 콘텐츠'로 평가받기 쉽다. 검색 수요가 실제로 있는
+  // 최신 20회차만 사이트맵에 넣고, 나머지는 robots.ts에서 크롤링을 막는다.
+  // (사이트 안에서는 조회·이동이 그대로 가능하다.)
+  const drawPages: MetadataRoute.Sitemap = draws
+    .slice(-INDEXED_DRAW_COUNT)
+    .map((d) => ({
+      url: `${SITE_URL}/numbers/${d.round}`,
+      lastModified: new Date(d.date),
+      changeFrequency: "yearly" as const,
+      priority: 0.5,
+    }));
 
   return [...staticPages, ...guidePages, ...drawPages];
 }

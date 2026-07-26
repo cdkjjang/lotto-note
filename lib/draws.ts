@@ -24,6 +24,18 @@ export const latestDraw: Draw = draws[draws.length - 1];
 export const firstDraw: Draw = draws[0];
 export const TOTAL_ROUNDS = draws.length;
 
+/**
+ * 검색엔진에 색인할 최신 회차 수.
+ * 회차 상세는 1,200여 개가 서로 비슷한 얇은 페이지라 전부 색인하면
+ * '가치 낮은 콘텐츠'로 평가받기 쉽다. 실제 검색 수요가 있는 최근 회차만
+ * sitemap에 넣고, 나머지는 robots.ts에서 크롤링을 막는다.
+ * (사이트 안에서는 전 회차 조회·이동이 그대로 가능하다.)
+ */
+export const INDEXED_DRAW_COUNT = 20;
+
+/** 색인 대상에서 제외되는 가장 큰 회차 번호 (이 번호 이하가 차단 대상) */
+export const LAST_NOINDEX_ROUND = Math.max(0, TOTAL_ROUNDS - INDEXED_DRAW_COUNT);
+
 export function getDraw(round: number): Draw | undefined {
   // 회차 == 배열 index+1 이지만, 안전하게 탐색
   const guess = draws[round - 1];

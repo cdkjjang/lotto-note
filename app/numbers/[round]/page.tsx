@@ -5,6 +5,7 @@ import { LottoBalls } from "@/components/LottoBall";
 import AdSlot from "@/components/AdSlot";
 import {
   DIVISION_LABELS,
+  LAST_NOINDEX_ROUND,
   draws,
   getDraw,
   latestDraw,
@@ -36,11 +37,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const nums = draw.numbers.join(", ");
   const title = `제${draw.round}회 로또 당첨번호 (${formatDate(draw.date)})`;
   const description = `${draw.round}회 로또 6/45 당첨번호는 ${nums} + 보너스 ${draw.bonus}. 1등 당첨금과 등수별 당첨 결과, 총 판매액을 확인하세요.`;
+  // 회차 상세는 1,200여 개가 서로 비슷한 얇은 페이지라, 전부 색인되면
+  // '가치 낮은 콘텐츠' 비중이 커진다. 검색 수요가 실제로 있는 최신 회차만
+  // 색인하고 오래된 회차는 noindex 처리한다(사이트 내 조회는 그대로 가능).
+  const noIndex = draw.round <= LAST_NOINDEX_ROUND;
+
   return {
     title,
     description,
     alternates: { canonical: `/numbers/${draw.round}` },
     openGraph: { title, description },
+    ...(noIndex ? { robots: { index: false, follow: true } } : {}),
   };
 }
 
