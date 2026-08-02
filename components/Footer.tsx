@@ -54,6 +54,9 @@ export default function Footer() {
           <Link href="/about" className="hover:text-accent">
             소개
           </Link>
+          <Link href="/editorial" className="hover:text-accent">
+            편집 원칙
+          </Link>
           <Link href="/contact" className="hover:text-accent">
             문의
           </Link>
