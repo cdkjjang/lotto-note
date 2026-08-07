@@ -16,6 +16,7 @@ const SITES = [
   { slug: "youth", name: "청년정책노트", url: "https://youth.lifebanjang.com", desc: "청년적금·월세지원·K-패스" },
   { slug: "trip", name: "여행노트", url: "https://trip.lifebanjang.com", desc: "면세한도·기내반입·여권" },
   { slug: "budongsan", name: "부동산노트", url: "https://budongsan.lifebanjang.com", desc: "취득세·양도세·보유세" },
+  { slug: "pension", name: "연금노트", url: "https://pension.lifebanjang.com", desc: "국민연금·기초연금·퇴직연금" },
 ];
 
 export default function FamilyLinks() {
