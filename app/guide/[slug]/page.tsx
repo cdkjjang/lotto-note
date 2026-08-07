@@ -45,11 +45,21 @@ export default async function GuideArticlePage({ params }: Props) {
         "@type": "Article",
         headline: guide.title,
         description: guide.description,
+        datePublished: guide.updated,
         dateModified: guide.updated,
         inLanguage: "ko",
         mainEntityOfPage: `${SITE_URL}/guide/${guide.slug}`,
         author: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
         publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+      },
+      // 검색결과에 "사이트명 > 가이드 > 글 제목" 경로가 표시되도록 한다.
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: SITE_NAME, item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "가이드", item: `${SITE_URL}/guide` },
+          { "@type": "ListItem", position: 3, name: guide.title },
+        ],
       },
       ...(guide.faq.length > 0
         ? [
