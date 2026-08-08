@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import { dreams, type DreamLuck } from "@/lib/dreams";
-import { SITE_NAME } from "@/lib/site";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/stories" },
   title: "로또 꿈 해몽 · 이야기 — 돼지꿈부터 조상꿈까지",
   description:
     "로또와 얽혀 예로부터 전해 내려오는 꿈 속설 모음. 돼지꿈·조상꿈·똥꿈 등 길몽 이야기와 당첨자 이야기에 대한 솔직한 정리. 재미로 보는 콘텐츠입니다.",
@@ -17,8 +18,22 @@ const LUCK_STYLE: Record<DreamLuck, string> = {
 };
 
 export default function StoriesPage() {
+  // 검색결과에 "사이트명 > 도구명" 경로가 표시되도록 한다.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: SITE_NAME, item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "꿈 해몽 이야기" },
+    ],
+  };
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <h1 className="text-2xl font-extrabold">로또 꿈 해몽 · 이야기</h1>
       <p className="mt-2 text-muted">
         로또와 얽혀 예로부터 전해 내려오는 꿈 이야기를 모았습니다.

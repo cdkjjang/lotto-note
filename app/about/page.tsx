@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SITE_NAME } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "소개",
   description: `${SITE_NAME} 서비스 소개와 데이터 출처, 이용 시 유의사항.`,
 };

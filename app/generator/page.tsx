@@ -4,20 +4,36 @@ import AdSlot from "@/components/AdSlot";
 import CalcNotes from "@/components/CalcNotes";
 import { draws } from "@/lib/draws";
 import { frequencyWeights } from "@/lib/stats";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/generator" },
   title: "로또 번호 생성기 — 랜덤·통계 가중·제외수 설정",
   description:
     "완전 랜덤 또는 통계 가중 방식으로 로또 6/45 번호를 생성합니다. 고정수·제외수 설정과 여러 게임 동시 생성까지. 재미로 보는 번호 추천입니다.",
 };
 
 export default function GeneratorPage() {
+  // 검색결과에 "사이트명 > 도구명" 경로가 표시되도록 한다.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: SITE_NAME, item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "번호 생성기" },
+    ],
+  };
+
   // 통계 가중 모드용 가중치는 서버에서 계산해 전달(전체 데이터를 클라이언트로
   // 내려보내지 않도록). index 1..45.
   const weights = frequencyWeights(draws);
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <h1 className="text-2xl font-extrabold">행운 번호 생성기</h1>
       <p className="mt-2 text-muted">
         완전 랜덤 또는 통계 가중 방식으로 번호를 뽑아 드립니다. 원하는 번호는

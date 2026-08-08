@@ -11,9 +11,10 @@ import {
   TOTAL_ROUNDS,
 } from "@/lib/draws";
 import { formatDate, formatNumber, formatWon } from "@/lib/format";
-import { SITE_NAME } from "@/lib/site";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/numbers" },
   title: "로또 당첨번호 조회 — 회차별 당첨번호·당첨금",
   description:
     "로또 6/45 1회부터 최신 회차까지 당첨번호와 1~5등 당첨금, 당첨 게임 수, 총 판매액을 회차별로 확인하세요.",
@@ -22,11 +23,25 @@ export const metadata: Metadata = {
 const RECENT_COUNT = 100;
 
 export default function NumbersPage() {
+  // 검색결과에 "사이트명 > 도구명" 경로가 표시되도록 한다.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: SITE_NAME, item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "당첨번호 조회" },
+    ],
+  };
+
   const latest = latestDraw;
   const recent = recentDraws(RECENT_COUNT);
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <h1 className="text-2xl font-extrabold">로또 당첨번호 조회</h1>
       <p className="mt-2 text-muted">
         제1회(2002.12.07)부터 제{latest.round}회까지 총{" "}

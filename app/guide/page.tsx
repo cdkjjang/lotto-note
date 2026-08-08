@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { guides } from "@/lib/guides";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "로또 가이드 — 확률·세금·수령·번호 선택의 진실",
@@ -10,8 +11,41 @@ export const metadata: Metadata = {
 };
 
 export default function GuideListPage() {
+  // 가이드 목록임을 알리고 검색결과에 사이트 내 경로가 표시되도록 한다.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        name: `${SITE_NAME} 가이드`,
+        url: `${SITE_URL}/guide`,
+        inLanguage: "ko",
+        mainEntity: {
+          "@type": "ItemList",
+          numberOfItems: guides.length,
+          itemListElement: guides.map((g, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: g.title,
+            url: `${SITE_URL}/guide/${g.slug}`,
+          })),
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: SITE_NAME, item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "가이드" },
+        ],
+      },
+    ],
+  };
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <h1 className="mb-2 text-2xl font-extrabold">로또 가이드</h1>
       <p className="mb-8 text-muted">
         당첨 확률과 세금 같은 기본 정보부터, 번호 선택에 얽힌 미신과 사실까지.

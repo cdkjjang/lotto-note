@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SITE_NAME } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/privacy" },
   title: "개인정보처리방침",
   description: `${SITE_NAME} 개인정보처리방침.`,
 };

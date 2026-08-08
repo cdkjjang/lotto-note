@@ -3,6 +3,7 @@ import { LottoBall } from "@/components/LottoBall";
 import AdSlot from "@/components/AdSlot";
 import CalcNotes from "@/components/CalcNotes";
 import { draws, latestDraw, TOTAL_ROUNDS } from "@/lib/draws";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 import {
   ALL_NUMBERS,
   coldNumbers,
@@ -14,6 +15,7 @@ import {
 } from "@/lib/stats";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/stats" },
   title: "로또 번호별 통계 — 많이 나온 번호·미출현 기간",
   description:
     "로또 6/45 전 회차 기준 번호별 출현 횟수, 많이/적게 나온 번호, 오래 안 나온 번호, 홀짝·고저 비율 통계입니다. 예측이 아닌 과거 데이터 집계입니다.",
@@ -32,6 +34,16 @@ function Bar({ value, max }: { value: number; max: number }) {
 }
 
 export default function StatsPage() {
+  // 검색결과에 "사이트명 > 도구명" 경로가 표시되도록 한다.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: SITE_NAME, item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "번호별 통계" },
+    ],
+  };
+
   const hot = hotNumbers(draws, 8);
   const cold = coldNumbers(draws, 8);
   const map = frequencyMap(draws);
@@ -45,6 +57,10 @@ export default function StatsPage() {
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <h1 className="text-2xl font-extrabold">로또 번호별 통계</h1>
       <p className="mt-2 text-muted">
         제1회부터 제{latestDraw.round}회까지 총{" "}

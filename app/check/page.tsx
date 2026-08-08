@@ -4,14 +4,26 @@ import AdSlot from "@/components/AdSlot";
 import CalcNotes from "@/components/CalcNotes";
 import { draws, latestDraw } from "@/lib/draws";
 import type { SlimDraw } from "@/lib/check";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/check" },
   title: "로또 당첨 확인기 — 내 번호 당첨 여부·등수 조회",
   description:
     "내가 고른 로또 번호 6개를 원하는 회차와 대조해 등수를 확인하고, 역대 전 회차에서 몇 등이었을지도 재미로 확인해 보세요.",
 };
 
 export default function CheckPage() {
+  // 검색결과에 "사이트명 > 도구명" 경로가 표시되도록 한다.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: SITE_NAME, item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "당첨 확인기" },
+    ],
+  };
+
   // 클라이언트로는 슬림 데이터(회차·번호·보너스)만 전달
   const slim: SlimDraw[] = draws.map((d) => ({
     round: d.round,
@@ -22,6 +34,10 @@ export default function CheckPage() {
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <h1 className="text-2xl font-extrabold">로또 당첨 확인기</h1>
       <p className="mt-2 text-muted">
         내 번호 6개를 골라 원하는 회차와 대조해 보세요. 역대 전 회차에서 몇
