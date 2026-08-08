@@ -17,6 +17,7 @@ const SITES = [
   { slug: "trip", name: "여행노트", url: "https://trip.lifebanjang.com", desc: "면세한도·기내반입·여권" },
   { slug: "budongsan", name: "부동산노트", url: "https://budongsan.lifebanjang.com", desc: "취득세·양도세·보유세" },
   { slug: "pension", name: "연금노트", url: "https://pension.lifebanjang.com", desc: "국민연금·기초연금·퇴직연금" },
+  { slug: "bill", name: "공과금노트", url: "https://bill.lifebanjang.com", desc: "전기요금·도시가스·수도요금" },
 ];
 
 export default function FamilyLinks() {
