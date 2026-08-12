@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { guides } from "@/lib/guides";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import AdSlot from "@/components/AdSlot";
 
 export const metadata: Metadata = {
   title: "로또 가이드 — 확률·세금·수령·번호 선택의 진실",
@@ -66,6 +67,7 @@ export default function GuideListPage() {
           </li>
         ))}
       </ul>
+      <AdSlot slot="guide-list-bottom" />
 
       <p className="mt-8 text-xs text-muted">
         본 가이드는 일반적인 정보 제공·오락용이며, 세무·법률 자문이 아닙니다.
