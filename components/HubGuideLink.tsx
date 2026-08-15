@@ -4,9 +4,9 @@
 // 허브가 노트로 보내기만 하고 받지는 못하던 단방향 구조를 메우는 자리이기도 하다.
 
 const HUB = {
-  href: "https://lifebanjang.com/guide",
-  title: "생활반장 상황별 가이드",
-  desc: "이사·결혼·출산·이직처럼 계산이 여러 개 얽히는 상황을 순서대로 정리했습니다",
+  href: "https://lifebanjang.com/guide/windfall-money",
+  title: "목돈이 생겼을 때 순서",
+  desc: "퇴직금·상속·성과급·당첨금은 세금이 각각 다릅니다 — 세후 금액부터 확인하세요",
 };
 
 export default function HubGuideLink() {
