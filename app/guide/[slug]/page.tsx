@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getGuide, guides } from "@/lib/guides";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import AdSlot from "@/components/AdSlot";
+import HubGuideLink from "@/components/HubGuideLink";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -169,6 +170,7 @@ export default async function GuideArticlePage({ params }: Props) {
         본 글은 정보 제공·오락용이며 세무·법률 자문이 아닙니다. 로또는 완전
         무작위 추첨으로 당첨을 예측·보장하지 않습니다.
       </p>
+      <HubGuideLink />
     </article>
   );
 }
