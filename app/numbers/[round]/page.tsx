@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { LottoBalls } from "@/components/LottoBall";
-import AdSlot from "@/components/AdSlot";
 import {
   DIVISION_LABELS,
   LAST_NOINDEX_ROUND,
@@ -147,7 +146,10 @@ export default async function DrawDetailPage({ params }: Props) {
         )}
       </nav>
 
-      <AdSlot slot="6666666666" />
+      {/* 광고를 넣지 않는다 — 회차 상세는 당첨번호·등위별 당첨금 표가 전부라
+          본문이 1,100자 남짓이고 연속 회차끼리 8할 이상 겹친다. 자동 생성된
+          얇은 페이지에 광고를 붙이는 것은 애드센스가 저품질로 보는 전형적인
+          형태라, 목록(/numbers)과 통계·생성기 쪽에만 게재한다. */}
 
       {/* 도구 연결 */}
       <section className="mt-8 grid gap-3 sm:grid-cols-2">
