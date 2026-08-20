@@ -6,6 +6,18 @@ import { SITE_NAME, SITE_URL } from "@/lib/site";
 import AdSlot from "@/components/AdSlot";
 import HubGuideLink from "@/components/HubGuideLink";
 
+// 가이드 본문의 **강조**를 <strong>으로 바꾼다.
+// 데이터 파일에서 마크다운 문법으로 강조를 표시해 왔는데 템플릿이 이를 변환하지
+// 않아, 본문에 별표가 그대로 노출되고 있었다. 데이터는 사람이 쓴 것이므로
+// HTML 특수문자를 먼저 이스케이프한 뒤 강조만 태그로 바꾼다.
+function bold(text: string): string {
+  const escaped = text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+  return escaped.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+}
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
@@ -88,7 +100,10 @@ export default async function GuideArticlePage({ params }: Props) {
 
       <div className="mt-6 space-y-4 text-[15px] leading-relaxed">
         {guide.intro.map((p) => (
-          <p key={p.slice(0, 20)}>{p}</p>
+          <p
+              key={p.slice(0, 20)}
+              dangerouslySetInnerHTML={{ __html: bold(p) }}
+            />
         ))}
       </div>
 
@@ -99,12 +114,18 @@ export default async function GuideArticlePage({ params }: Props) {
           </h2>
           <div className="mt-3 space-y-4 text-[15px] leading-relaxed">
             {section.paragraphs.map((p) => (
-              <p key={p.slice(0, 20)}>{p}</p>
+              <p
+              key={p.slice(0, 20)}
+              dangerouslySetInnerHTML={{ __html: bold(p) }}
+            />
             ))}
             {section.list && (
               <ul className="list-disc space-y-2 pl-5">
                 {section.list.map((item) => (
-                  <li key={item.slice(0, 20)}>{item}</li>
+                  <li
+                    key={item.slice(0, 20)}
+                    dangerouslySetInnerHTML={{ __html: bold(item) }}
+                  />
                 ))}
               </ul>
             )}

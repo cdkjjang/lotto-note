@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LottoBalls } from "@/components/LottoBall";
-import AdSlot from "@/components/AdSlot";
 import RoundJump from "@/components/RoundJump";
 import {
   DIVISION_LABELS,
@@ -101,7 +100,9 @@ export default function NumbersPage() {
         </Link>
       </section>
 
-      <AdSlot slot="1111111111" />
+      {/* 광고를 넣지 않는다. 이 페이지는 본문 대비 링크 비율이 89%인 회차
+          목록이라, 본문이 있는 계산기·가이드에만 광고를 게재한다는 원칙에
+          해당하지 않는다. 회차 상세 페이지에서 광고를 뺀 것과 같은 이유다. */}
 
       {/* 지난 회차 목록 */}
       <section className="mt-8">

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { guides } from "@/lib/guides";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
-import AdSlot from "@/components/AdSlot";
 
 export const metadata: Metadata = {
   title: "로또 가이드 — 확률·세금·수령·번호 선택의 진실",
@@ -54,20 +53,24 @@ export default function GuideListPage() {
       </p>
       <ul className="space-y-4">
         {guides.map((g) => (
-          <li key={g.slug}>
-            <Link
-              href={`/guide/${g.slug}`}
-              className="block rounded-2xl border border-border-soft bg-card p-5 shadow-sm transition-all hover:border-accent hover:shadow-md"
-            >
-              <h2 className="font-bold leading-snug">{g.title}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                {g.description}
-              </p>
-            </Link>
+          <li
+            key={g.slug}
+            className="rounded-2xl border border-border-soft bg-card p-5 shadow-sm transition-all hover:border-accent hover:shadow-md"
+          >
+            {/* 제목만 링크로 둔다. 설명까지 앵커 안에 넣으면 목록 페이지 본문이
+                거의 전부 링크 텍스트가 되어, 검색엔진과 광고 심사 양쪽에서
+                '읽을거리 없는 링크 모음'으로 읽힌다. */}
+            <h2 className="font-bold leading-snug">
+              <Link href={`/guide/${g.slug}`} className="hover:text-accent">
+                {g.title}
+              </Link>
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted">
+              {g.description}
+            </p>
           </li>
         ))}
       </ul>
-      <AdSlot slot="guide-list-bottom" />
 
       <p className="mt-8 text-xs text-muted">
         본 가이드는 일반적인 정보 제공·오락용이며, 세무·법률 자문이 아닙니다.

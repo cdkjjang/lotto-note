@@ -152,15 +152,18 @@ export default function HomePage() {
         <ul className="space-y-2">
           {guides.slice(0, 4).map((g) => (
             <li key={g.slug}>
-              <Link
-                href={`/guide/${g.slug}`}
-                className="block rounded-xl border border-border-soft bg-card p-4 shadow-sm transition-all hover:border-accent"
-              >
-                <p className="font-bold leading-snug">{g.title}</p>
+              <div className="rounded-xl border border-border-soft bg-card p-4 shadow-sm transition-all hover:border-accent">
+                {/* 제목만 링크로 둔다 — 설명까지 앵커에 넣으면 본문 대부분이
+                    링크 텍스트가 된다. */}
+                <p className="font-bold leading-snug">
+                  <Link href={`/guide/${g.slug}`} className="hover:text-accent">
+                    {g.title}
+                  </Link>
+                </p>
                 <p className="mt-1 line-clamp-2 text-sm text-muted">
                   {g.description}
                 </p>
-              </Link>
+              </div>
             </li>
           ))}
         </ul>
