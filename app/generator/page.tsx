@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import CalcGuides from "@/components/CalcGuides";
 import GeneratorClient from "@/components/GeneratorClient";
 import AdSlot from "@/components/AdSlot";
 import CalcNotes from "@/components/CalcNotes";
@@ -128,6 +129,7 @@ export default function GeneratorPage() {
         ]}
       />
 
+      <CalcGuides calcHref="/generator" />
     </div>
   );
 }

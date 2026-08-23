@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import CalcGuides from "@/components/CalcGuides";
 import CheckClient from "@/components/CheckClient";
 import AdSlot from "@/components/AdSlot";
 import CalcNotes from "@/components/CalcNotes";
@@ -131,6 +132,7 @@ export default function CheckPage() {
         ]}
       />
 
+      <CalcGuides calcHref="/check" />
     </div>
   );
 }
