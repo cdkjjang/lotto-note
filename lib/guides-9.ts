@@ -113,7 +113,7 @@ export const guides9: Guide[] = [
         a: "유리하지 않습니다. 판매액이 늘면 당첨금 총액도 늘지만 당첨자 수도 함께 늘어나는 경향이 있습니다. 그리고 개인의 당첨 확률은 판매량과 무관하게 814만분의 1로 같습니다.",
       },
     ],
-    related: ["prize-amount-varies", "odds", "statistics-myth"],
+    related: ["prize-amount-varies", "odds", "how-to-pick"],
     cta: { href: "/numbers", label: "회차별 기록 보기" },
   },
 ];

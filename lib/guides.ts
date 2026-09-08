@@ -2,17 +2,20 @@ import type { Guide } from "./guide-types";
 import { guides1 } from "./guides-1";
 import { guides2 } from "./guides-2";
 import { guides3 } from "./guides-3";
-import { guides4 } from "./guides-4";
 import { guides5 } from "./guides-5";
 import { guides6 } from "./guides-6";
 import { guides7 } from "./guides-7";
 import { guides8 } from "./guides-8";
 import { guides9 } from "./guides-9";
 import { guides10 } from "./guides-10";
+import { guides11 } from "./guides-11";
 
 export type { Guide, GuideSection } from "./guide-types";
 
-const rawGuides: Guide[] = [...guides1, ...guides2, ...guides3, ...guides4, ...guides5, ...guides6, ...guides7, ...guides8, ...guides9, ...guides10];
+// 2026-09-06 통합으로 guides-4.ts(online-purchase-rules)가 비어 삭제됐다.
+// 번호는 다시 쓰지 말 것 — 옛 번호를 재사용하면 이력을 좇기 어려워진다.
+// 새 파일은 guides-12.ts부터.
+const rawGuides: Guide[] = [...guides1, ...guides2, ...guides3, ...guides5, ...guides6, ...guides7, ...guides8, ...guides9, ...guides10, ...guides11];
 
 /**
  * related를 양방향으로 채운다.

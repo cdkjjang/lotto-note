@@ -252,7 +252,7 @@ export default function StatsPage() {
         ]}
         sources={[
           { label: "동행복권", href: "https://dhlottery.co.kr" },
-          { label: "통계로 고르면 유리할까", href: "/guide/statistics-myth" },
+          { label: "통계로 고르면 유리할까", href: "/guide/how-to-pick" },
           { label: "한국도박문제예방치유원", href: "https://www.kcgp.or.kr" },
         ]}
       />

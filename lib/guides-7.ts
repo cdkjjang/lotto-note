@@ -101,7 +101,7 @@ export const guides7: Guide[] = [
         a: "없습니다. 지급개시일부터 1년이 지나면 청구권이 소멸하고 예외가 인정되지 않습니다. 기한 관리가 유일한 대비입니다.",
       },
     ],
-    related: ["claim", "unclaimed-prize", "lotto-scam"],
+    related: ["claim", "lotto-scam"],
     cta: { href: "/check", label: "당첨 여부 확인하기" },
   },
 ];
