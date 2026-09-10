@@ -33,7 +33,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/stories`, lastModified: CALC_UPDATED, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/guide`, lastModified: CONTENT_UPDATED, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/about`, lastModified: STATIC_UPDATED, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${SITE_URL}/contact`, lastModified: STATIC_UPDATED, changeFrequency: "yearly", priority: 0.3 },
     { url: `${SITE_URL}/editorial`, lastModified: STATIC_UPDATED, changeFrequency: "yearly", priority: 0.4 },
     { url: `${SITE_URL}/privacy`, lastModified: STATIC_UPDATED, changeFrequency: "yearly", priority: 0.2 },
     { url: `${SITE_URL}/terms`, lastModified: STATIC_UPDATED, changeFrequency: "yearly", priority: 0.2 },
@@ -46,18 +45,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // 회차 상세는 1,200여 개가 서로 비슷한 얇은 페이지라 전부 색인하면
-  // '가치 낮은 콘텐츠'로 평가받기 쉽다. 검색 수요가 실제로 있는
-  // 최신 20회차만 사이트맵에 넣고, 나머지는 noindex로 처리한다.
-  // (사이트 안에서는 조회·이동이 그대로 가능하다.)
-  const drawPages: MetadataRoute.Sitemap = draws
-    .slice(-INDEXED_DRAW_COUNT)
-    .map((d) => ({
-      url: `${SITE_URL}/numbers/${d.round}`,
-      lastModified: new Date(d.date),
-      changeFrequency: "yearly" as const,
-      priority: 0.5,
-    }));
+  // 회차 상세는 1,200여 개가 서로 비슷한 얇은 페이지라 색인하지 않는다.
+  // 2026-09-10부터 INDEXED_DRAW_COUNT = 0 — 근거는 lib/draws.ts 주석 참조.
+  //
+  // ⚠️ `slice(-0)`은 배열 **전체**를 돌려준다(-0 === 0). 0일 때를 따로 막지 않으면
+  //    닫으려던 1,200여 개가 통째로 사이트맵에 들어간다. 반드시 이 분기를 유지할 것.
+  const drawPages: MetadataRoute.Sitemap =
+    INDEXED_DRAW_COUNT > 0
+      ? draws.slice(-INDEXED_DRAW_COUNT).map((d) => ({
+          url: `${SITE_URL}/numbers/${d.round}`,
+          lastModified: new Date(d.date),
+          changeFrequency: "yearly" as const,
+          priority: 0.5,
+        }))
+      : [];
 
   return [...staticPages, ...guidePages, ...drawPages];
 }
