@@ -7,6 +7,8 @@ import { latestDraw, recentDraws, TOTAL_ROUNDS } from "@/lib/draws";
 import { guides } from "@/lib/guides";
 import { formatDate, formatWon } from "@/lib/format";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
+import NoteIcon from "@/components/NoteIcon";
+import { NOTE_SLUG } from "@/lib/note-look";
 
 const TOOLS = [
   {
@@ -61,6 +63,7 @@ export default function HomePage() {
       />
 
       <section className="py-6 text-center sm:py-8">
+        <NoteIcon slug={NOTE_SLUG} size={52} tile className="mb-4" />
         <h1 className="text-3xl font-extrabold leading-tight sm:text-4xl">
           로또 당첨번호와 통계,
           <br className="sm:hidden" /> 한곳에서
@@ -73,7 +76,7 @@ export default function HomePage() {
       </section>
 
       {/* 최신 회차 당첨번호 */}
-      <section className="rounded-2xl border border-border-soft bg-card p-6 shadow-sm">
+      <section className="rounded-2xl border border-border-soft bg-card p-6">
         <div className="mb-4 flex items-baseline justify-between">
           <h2 className="text-lg font-bold">
             제 {latest.round}회 당첨번호
@@ -101,7 +104,7 @@ export default function HomePage() {
           <Link
             key={tool.href}
             href={tool.href}
-            className="rounded-2xl border border-border-soft bg-card p-5 shadow-sm transition-all hover:border-accent hover:shadow-md"
+            className="rounded-2xl border border-border-soft bg-card p-5 transition-colors hover:border-accent"
           >
             <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-bold text-accent-strong">
               {tool.badge}
@@ -129,7 +132,7 @@ export default function HomePage() {
             <li key={d.round}>
               <Link
                 href={`/numbers/${d.round}`}
-                className="flex flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-border-soft bg-card p-3 shadow-sm transition-all hover:border-accent hover:shadow-md"
+                className="flex flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-border-soft bg-card p-3 transition-colors hover:border-accent"
               >
                 <span className="w-16 shrink-0 text-sm font-bold text-accent-strong">
                   {d.round}회
@@ -152,7 +155,7 @@ export default function HomePage() {
         <ul className="space-y-2">
           {guides.slice(0, 10).map((g) => (
             <li key={g.slug}>
-              <div className="rounded-xl border border-border-soft bg-card p-4 shadow-sm transition-all hover:border-accent">
+              <div className="rounded-xl border border-border-soft bg-card p-4 transition-colors hover:border-accent">
                 {/* 제목만 링크로 둔다 — 설명까지 앵커에 넣으면 본문 대부분이
                     링크 텍스트가 된다. */}
                 <p className="font-bold leading-snug">
