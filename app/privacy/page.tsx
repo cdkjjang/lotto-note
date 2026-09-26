@@ -46,10 +46,10 @@ export default function PrivacyPage() {
         <p>
           개인정보 관련 문의는{" "}
           <a
-            href="mailto:cdkjjang@gmail.com"
+            href="mailto:lifebanjang1004@naver.com"
             className="text-accent hover:underline"
           >
-            cdkjjang@gmail.com
+            lifebanjang1004@naver.com
           </a>
           으로 연락해 주세요.
         </p>

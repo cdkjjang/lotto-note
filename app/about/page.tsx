@@ -104,10 +104,10 @@ export default function AboutPage() {
         <p>
           제안이나 오류 제보는 생활반장 대표 메일{" "}
           <a
-            href="mailto:cdkjjang@gmail.com"
+            href="mailto:lifebanjang1004@naver.com"
             className="text-accent hover:underline"
           >
-            cdkjjang@gmail.com
+            lifebanjang1004@naver.com
           </a>
           으로 보내주세요.
         </p>
