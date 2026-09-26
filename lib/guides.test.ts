@@ -221,3 +221,24 @@ describe("통합으로 사라진 URL의 301", () => {
     expect(chained).toEqual([]);
   });
 });
+
+describe("꺾쇠로 인용하지 않는다", () => {
+  it("<대학 동기>처럼 한글 꺾쇠가 본문에 없다", () => {
+    // 템플릿의 bold()가 <·>를 먼저 이스케이프하므로 꺾쇠 인용이 화면에
+    // 글자 그대로 나온다. 2026-09-26까지 전 노트에서 약 300곳이 그렇게
+    // 노출되고 있었다. 인용·강조는 작은따옴표로 쓸 것.
+    const bad: string[] = [];
+    for (const g of guides) {
+      const parts = [
+        ...g.intro,
+        ...g.sections.flatMap((s) => [s.heading, ...s.paragraphs, ...(s.list ?? [])]),
+        ...g.faq.flatMap((f) => [f.q, f.a]),
+      ];
+      for (const p of parts) {
+        const m = p.match(/<[^<>]*[가-힣][^<>]*>/);
+        if (m) bad.push(`${g.slug}: ${m[0]}`);
+      }
+    }
+    expect(bad).toEqual([]);
+  });
+});
