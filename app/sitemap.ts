@@ -33,7 +33,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/stories`, lastModified: CALC_UPDATED, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/guide`, lastModified: CONTENT_UPDATED, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/about`, lastModified: STATIC_UPDATED, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${SITE_URL}/editorial`, lastModified: STATIC_UPDATED, changeFrequency: "yearly", priority: 0.4 },
+    // 편집 원칙은 2026-10-11 정정 기록을 추가했다
+    { url: `${SITE_URL}/editorial`, lastModified: "2026-10-11", changeFrequency: "yearly", priority: 0.4 },
     { url: `${SITE_URL}/privacy`, lastModified: STATIC_UPDATED, changeFrequency: "yearly", priority: 0.2 },
     { url: `${SITE_URL}/terms`, lastModified: STATIC_UPDATED, changeFrequency: "yearly", priority: 0.2 },
   ];

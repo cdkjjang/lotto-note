@@ -8,7 +8,7 @@
 
 - Next.js 16.2.10 (App Router) + TypeScript + Tailwind CSS 4. DB·로그인·결제 없음, 전부 정적.
 - 개발 서버: 워크스페이스 `.claude/launch.json`의 `lotto-note-dev` (포트 3500, preview_start 사용)
-- 빌드: `npm run build` / 테스트: `npm test` (vitest 39개 — stats·generator·check·guides)
+- 빌드: `npm run build` / 테스트: `npm test` (vitest 50개 — stats·generator·check·guides)
 - 데이터 백필/갱신: `npm run gen:draws` (scripts/fetch-draws.mjs)
 - Node는 포터블: 명령 앞에 `$env:Path = "E:\클로드\tools\node;$env:Path"` 필요
 - 배포: `git push origin main` (Vercel 자동 배포)만 사용. 절차는 `DEPLOY.md`
@@ -75,7 +75,7 @@
 ### ⚠️ 과세최저한은 5만원이 아니라 **건별 200만원**이다
 
 같은 날 발견해 고쳤다. 복권 당첨금은 기타소득 일반 기준(건별 5만원)이 아니라
-**소득세법 제84조 제1호의 건별 200만원 이하 비과세**가 적용된다.
+**소득세법 제84조 제2호의 건별 200만원 이하 비과세**가 적용된다(제1호는 경마·체육진흥투표권 — 2026-10-11까지 제1호로 잘못 적었다).
 
 점검해 보니 **네 편이 5만원으로 잘못 쓰고 있었고**(`tax`·`pension-lottery-compare`·
 `winner-anonymity`·`prize-amount-varies`), 같은 노트의 `lotto-scam`·`online-purchase-rules`는
@@ -111,6 +111,17 @@
 - ⚠️ **다시 열려면 본문을 먼저 두껍게 해야 한다.** 숫자만 되돌리지 말 것.
 - 크롤링 자체는 막지 않는다(robots.txt는 `Allow: /`). 이미 색인된 페이지가
   `noindex`를 읽고 빠져야 하기 때문이다.
+
+## 2026-10-11 법령 원문 대조 점검
+
+- 맞은 것: 과세최저한 200만원(소득세법 제84조 제2호), 원천징수 20%·3억 초과분 30%(제129조①6호),
+  소멸시효 1년(복권법 제9조), 1회 판매 한도 10만원(시행령 제3조), 청소년 판매 금지·신용카드 금지(법 제5조),
+  인터넷 회차당 5천원(동행복권 안내), 등위 배분 75/12.5/12.5%·4등 5만·5등 5천, 연금복권720+ 월 700만×20년.
+- **수령 장소** — "1·2등 농협 본점"으로 쓴 곳이 넷(guides-1 `claim`·guides-3·guides-11). 동행복권
+  `/lt645/intro`·`/guide/wnrGuide` 기준 **1등 본점, 2·3등 농협 전국 지점, 4·5등 판매점**.
+  인터넷 구매 소액은 예치금 자동 입금. 지급기한 종료일이 비영업일이면 다음 영업일.
+- 판매인 우선계약은 법 제30조의 **노력 의무**다("우선권을 준다"로 단정하지 말 것).
+- 5게임 중 5등 1장 이상 확률은 10.7%(10.6%로 적혀 있었다).
 
 ## 주의사항
 
