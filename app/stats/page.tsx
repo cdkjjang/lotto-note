@@ -17,7 +17,7 @@ import {
 
 export const metadata: Metadata = {
   alternates: { canonical: "/stats" },
-  title: "로또 번호별 통계 — 많이 나온 번호·미출현 기간",
+  title: "로또 당첨번호 통계 — 많이 나온 번호·미출현 번호·홀짝 비율",
   description:
     "로또 6/45 전 회차 기준 번호별 출현 횟수, 많이/적게 나온 번호, 오래 안 나온 번호, 홀짝·고저 비율 통계입니다. 예측이 아닌 과거 데이터 집계입니다.",
 };

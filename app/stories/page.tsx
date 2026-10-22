@@ -6,7 +6,7 @@ import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/stories" },
-  title: "로또 꿈 해몽 · 이야기 — 돼지꿈부터 조상꿈까지",
+  title: "조상꿈·돼지꿈 로또 해몽 — 로또와 얽힌 꿈 이야기",
   description:
     "로또와 얽혀 예로부터 전해 내려오는 꿈 속설 모음. 돼지꿈·조상꿈·똥꿈 등 길몽 이야기와 당첨자 이야기에 대한 솔직한 정리. 재미로 보는 콘텐츠입니다.",
 };

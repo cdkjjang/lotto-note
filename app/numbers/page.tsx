@@ -14,7 +14,7 @@ import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/numbers" },
-  title: "로또 당첨번호 조회 — 회차별 당첨번호·당첨금",
+  title: "회차별 로또 당첨번호 전체 모음 — 1회부터 최신 회차·당첨금",
   description:
     "로또 6/45 1회부터 최신 회차까지 당첨번호와 1~5등 당첨금, 당첨 게임 수, 총 판매액을 회차별로 확인하세요.",
 };
