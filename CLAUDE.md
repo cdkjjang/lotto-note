@@ -8,7 +8,7 @@
 
 - Next.js 16.2.10 (App Router) + TypeScript + Tailwind CSS 4. DB·로그인·결제 없음, 전부 정적.
 - 개발 서버: 워크스페이스 `.claude/launch.json`의 `lotto-note-dev` (포트 3500, preview_start 사용)
-- 빌드: `npm run build` / 테스트: `npm test` (vitest 50개 — stats·generator·check·guides)
+- 빌드: `npm run build` / 테스트: `npm test` (vitest 52개 — stats·generator·check·guides)
 - 데이터 백필/갱신: `npm run gen:draws` (scripts/fetch-draws.mjs)
 - Node는 포터블: 명령 앞에 `$env:Path = "E:\클로드\tools\node;$env:Path"` 필요
 - 배포: `git push origin main` (Vercel 자동 배포)만 사용. 절차는 `DEPLOY.md`
