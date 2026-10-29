@@ -22,8 +22,14 @@
 - ⚠️ **동행복권 공식 엔드포인트(common.do?method=getLottoNumber)는 WAF가 비브라우저
   요청을 차단**(홈/errorPage로 리다이렉트)해 node·서버에서 직접 못 받는다. 세션 쿠키를
   갖춰도 마찬가지. 그래서 GitHub 미러를 쓴다. 당첨번호는 사실(fact)이라 재게시 제약 없음.
-- **주간 갱신**: 매주 토요일 추첨 후 `npm run gen:draws` 재실행 → `data/draws.json`
-  갱신 → 커밋 → `git push`. 정적 사이트라 이 흐름만으로 최신 회차가 반영된다.
+- **주간 갱신은 자동이다** — `scripts/update-draws.ps1`(UTF-8 BOM 필수)을 Windows 작업
+  스케줄러가 매주 일요일 오전에 실행한다. 순서: `gen:draws` → 최신 회차가 늘었을 때만
+  `npx vitest run` + `npm run build` → 통과하면 **`data/draws.json` 한 파일만** 커밋하고
+  `git push origin main`. 새 회차가 없거나 실패하면 draws.json을 되돌리고 커밋하지 않는다.
+  - 로그 `logs/update-draws.log`, 실패 시 `logs/FAILED.txt`(git 제외). **가끔 FAILED.txt가 있는지 볼 것.**
+  - draws.json에 커밋 안 된 수정이 있거나 main이 아니면 실행을 멈춘다 — 손으로 고치던 수정을 날리지 않으려고.
+  - 손으로 돌리려면 `powershell -NoProfile -ExecutionPolicy Bypass -File scripts\update-draws.ps1`.
+  - 7월 구축 때는 "매주 손으로"였는데 한 번도 안 돌아, 2026-10-29에 1247회까지 몰아 갱신하고 자동화했다.
 - `data/draws.json` 스키마: `{ round, date, numbers[6], bonus, divisions[5]{prize,winners}, totalSales, combination{auto,semiAuto,manual} }`
 
 ## 구조

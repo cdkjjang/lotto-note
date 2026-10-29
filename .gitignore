@@ -29,3 +29,6 @@ next-env.d.ts
 
 # vercel
 .vercel
+
+# 자동 갱신 로그 (scripts/update-draws.ps1)
+/logs/
