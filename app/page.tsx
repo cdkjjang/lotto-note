@@ -98,6 +98,9 @@ export default function HomePage() {
         </Link>
       </section>
 
+      {/* 홈 위쪽 광고 자리 — 맨 아래 하나뿐이라 PC에서도 한참 내려야 보였다 */}
+      <AdSlot slot="home-top" />
+
       {/* 도구 카드 */}
       <section className="mt-8 grid gap-4 sm:grid-cols-2">
         {TOOLS.map((tool) => (
