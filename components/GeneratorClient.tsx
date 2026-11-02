@@ -68,13 +68,13 @@ export default function GeneratorClient({ weights }: { weights: number[] }) {
               aria-pressed={mode === o.v}
               className={`rounded-full border px-4 py-2.5 text-[15px] transition-all ${
                 mode === o.v
-                  ? "border-accent bg-accent font-semibold text-white shadow-md"
+                  ? "border-accent bg-accent font-semibold text-on-accent shadow-md"
                   : "border-border-soft bg-card hover:border-accent"
               }`}
             >
               {o.label}
               <span
-                className={`ml-1 text-xs ${mode === o.v ? "text-white/85" : "text-muted"}`}
+                className={`ml-1 text-xs ${mode === o.v ? "text-on-accent/85" : "text-muted"}`}
               >
                 · {o.hint}
               </span>
@@ -95,7 +95,7 @@ export default function GeneratorClient({ weights }: { weights: number[] }) {
               aria-pressed={games === g}
               className={`h-11 w-11 rounded-full border text-[15px] transition-all ${
                 games === g
-                  ? "border-accent bg-accent font-semibold text-white shadow-md"
+                  ? "border-accent bg-accent font-semibold text-on-accent shadow-md"
                   : "border-border-soft bg-card hover:border-accent"
               }`}
             >
@@ -158,7 +158,7 @@ export default function GeneratorClient({ weights }: { weights: number[] }) {
           type="button"
           onClick={generate}
           disabled={!canGenerate}
-          className="flex-1 rounded-full bg-accent px-5 py-3 font-bold text-white shadow-md transition-all hover:bg-accent-strong disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex-1 rounded-full bg-accent px-5 py-3 font-bold text-on-accent shadow-md transition-all hover:bg-accent-strong disabled:cursor-not-allowed disabled:opacity-50"
         >
           번호 생성
         </button>

@@ -100,7 +100,7 @@ export default function StoriesPage() {
         </p>
         <Link
           href="/generator"
-          className="mt-3 inline-block rounded-xl bg-accent px-6 py-2.5 font-bold text-white transition-colors hover:bg-accent-strong"
+          className="mt-3 inline-block rounded-xl bg-accent px-6 py-2.5 font-bold text-on-accent transition-colors hover:bg-accent-strong"
         >
           번호 생성기로 이동 →
         </Link>

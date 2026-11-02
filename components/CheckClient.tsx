@@ -103,7 +103,7 @@ export default function CheckClient({
               disabled={full}
               className={`h-9 rounded-lg border text-sm font-medium transition-all ${
                 on
-                  ? "border-accent bg-accent font-bold text-white shadow-md"
+                  ? "border-accent bg-accent font-bold text-on-accent shadow-md"
                   : full
                     ? "border-border-soft bg-card text-muted/40"
                     : "border-border-soft bg-card hover:border-accent"
@@ -131,7 +131,7 @@ export default function CheckClient({
           max={latestRound}
           value={round}
           onChange={(e) => setRound(e.target.value)}
-          className="w-40 rounded-xl border border-border-soft bg-card px-4 py-2.5 text-[15px] shadow-sm focus:border-accent focus:outline-none"
+          className="w-40 rounded-xl border border-border-soft bg-card px-4 py-2.5 text-base shadow-sm focus:border-accent focus:outline-none"
         />
         <span className="ml-2 text-sm text-muted">회 (최신 {latestRound}회)</span>
       </div>
@@ -142,7 +142,7 @@ export default function CheckClient({
           type="button"
           onClick={check}
           disabled={selected.length !== 6}
-          className="flex-1 rounded-full bg-accent px-5 py-3 font-bold text-white shadow-md transition-all hover:bg-accent-strong disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex-1 rounded-full bg-accent px-5 py-3 font-bold text-on-accent shadow-md transition-all hover:bg-accent-strong disabled:cursor-not-allowed disabled:opacity-50"
         >
           당첨 확인
         </button>

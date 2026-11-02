@@ -10,7 +10,7 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="mt-6 inline-block rounded-full bg-accent px-5 py-2.5 font-semibold text-white hover:bg-accent-strong"
+        className="mt-6 inline-block rounded-full bg-accent px-5 py-2.5 font-semibold text-on-accent hover:bg-accent-strong"
       >
         홈으로 가기
       </Link>

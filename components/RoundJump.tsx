@@ -33,12 +33,12 @@ export default function RoundJump({ max }: { max: number }) {
           }}
           placeholder={`회차 입력 (1~${max})`}
           aria-label="회차 번호"
-          className="w-full rounded-xl border border-border-soft bg-card px-4 py-2.5 text-[15px] shadow-sm focus:border-accent focus:outline-none"
+          className="w-full rounded-xl border border-border-soft bg-card px-4 py-2.5 text-base shadow-sm focus:border-accent focus:outline-none"
         />
         <button
           type="button"
           onClick={go}
-          className="shrink-0 rounded-xl bg-accent px-5 py-2.5 font-semibold text-white shadow-sm transition-colors hover:bg-accent-strong"
+          className="shrink-0 rounded-xl bg-accent px-5 py-2.5 font-semibold text-on-accent shadow-sm transition-colors hover:bg-accent-strong"
         >
           이동
         </button>
