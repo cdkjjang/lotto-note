@@ -92,7 +92,7 @@ export default function HomePage() {
         )}
         <Link
           href="/numbers"
-          className="mt-4 inline-block text-sm font-semibold text-accent hover:underline"
+          className="-mb-1.5 mt-2.5 inline-block py-1.5 text-sm font-semibold text-accent hover:underline"
         >
           지난 회차 전체 보기 →
         </Link>
@@ -126,7 +126,7 @@ export default function HomePage() {
       <section className="mt-10">
         <div className="mb-4 flex items-baseline justify-between">
           <h2 className="text-xl font-bold">최근 당첨번호</h2>
-          <Link href="/numbers" className="text-sm text-accent hover:underline">
+          <Link href="/numbers" className="-my-1.5 inline-block py-1.5 text-sm text-accent hover:underline">
             전체 보기 →
           </Link>
         </div>
@@ -151,7 +151,7 @@ export default function HomePage() {
       <section className="mt-10">
         <div className="mb-4 flex items-baseline justify-between">
           <h2 className="text-xl font-bold">로또, 이런 게 궁금하다면</h2>
-          <Link href="/guide" className="text-sm text-accent hover:underline">
+          <Link href="/guide" className="-my-1.5 inline-block py-1.5 text-sm text-accent hover:underline">
             전체 보기 →
           </Link>
         </div>
