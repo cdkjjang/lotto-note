@@ -1,0 +1,7 @@
+User-Agent: *
+Allow: /
+
+#다음 웹마스터 도구 소유확인 (webmaster.daum.net)
+#DaumWebMasterTool:b157971e33e7f71f720950d10b84d9b4837980822adf009dbe35256df1e78290:CNSJIIGOISrSV2aL3hPlgQ==
+
+Sitemap: https://lotto.lifebanjang.com/sitemap.xml
