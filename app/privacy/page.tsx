@@ -43,6 +43,7 @@ export default function PrivacyPage() {
 
       <section>
         <h2 className="mb-2 text-lg font-bold">4. 문의</h2>
+        <p>개인정보 보호책임자: 운영자 (lifebanjang1004@naver.com)</p>
         <p>
           개인정보 관련 문의는{" "}
           <a
