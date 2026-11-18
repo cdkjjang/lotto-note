@@ -9,6 +9,7 @@ import { formatDate, formatWon } from "@/lib/format";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 import NoteIcon from "@/components/NoteIcon";
 import { NOTE_SLUG } from "@/lib/note-look";
+import { jsonLdScript } from "@/lib/json-ld";
 
 const TOOLS = [
   {
@@ -59,7 +60,7 @@ export default function HomePage() {
     <div>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }}
       />
 
       <section className="py-6 text-center sm:py-8">

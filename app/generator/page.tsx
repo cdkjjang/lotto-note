@@ -6,6 +6,7 @@ import CalcNotes from "@/components/CalcNotes";
 import { draws } from "@/lib/draws";
 import { frequencyWeights } from "@/lib/stats";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { jsonLdScript } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/generator" },
@@ -33,7 +34,7 @@ export default function GeneratorPage() {
     <div>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }}
       />
       <h1 className="text-2xl font-extrabold">행운 번호 생성기</h1>
       <p className="mt-2 text-muted">

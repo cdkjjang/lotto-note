@@ -31,6 +31,13 @@ export default function PrivacyPage() {
           광고 설정(google.com/settings/ads)에서 맞춤형 광고를 해제할 수
           있습니다.
         </p>
+        <p>
+          본 사이트에는 쿠팡 파트너스 제휴 광고가 실립니다. 광고를 누르거나 쿠팡에서
+          구매하면 쿠팡(주)(대한민국)이 성과를 측정하기 위해 쿠키와 접속 기록(방문
+          주소·기기 정보)을 사용하고, 운영자는 그에 따른 일정액의 수수료를 받습니다.
+          브라우저 설정에서 쿠키를 차단해 거부할 수 있으며, 거부해도 계산기와 글은
+          그대로 이용할 수 있습니다.
+        </p>
       </section>
 
       <section>
@@ -56,7 +63,7 @@ export default function PrivacyPage() {
         </p>
       </section>
 
-      <p className="text-xs text-muted">시행일: 2026년 7월 19일</p>
+      <p className="text-xs text-muted">시행일: 2026년 7월 19일 · 최종 개정: 2026년 11월 20일</p>
     </div>
   );
 }

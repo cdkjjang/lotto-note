@@ -3,6 +3,7 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import { dreams, type DreamLuck } from "@/lib/dreams";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { jsonLdScript } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/stories" },
@@ -32,7 +33,7 @@ export default function StoriesPage() {
     <div>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }}
       />
       <h1 className="text-2xl font-extrabold">로또 꿈 해몽 · 이야기</h1>
       <p className="mt-2 text-muted">

@@ -11,6 +11,7 @@ import {
 } from "@/lib/draws";
 import { formatDate, formatNumber, formatWon } from "@/lib/format";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { jsonLdScript } from "@/lib/json-ld";
 
 interface Props {
   params: Promise<{ round: string }>;
@@ -73,7 +74,7 @@ export default async function DrawDetailPage({ params }: Props) {
     <div>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }}
       />
 
       <p className="text-sm text-muted">

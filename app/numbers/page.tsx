@@ -11,6 +11,7 @@ import {
 } from "@/lib/draws";
 import { formatDate, formatNumber, formatWon } from "@/lib/format";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { jsonLdScript } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/numbers" },
@@ -39,7 +40,7 @@ export default function NumbersPage() {
     <div>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }}
       />
       <h1 className="text-2xl font-extrabold">로또 당첨번호 조회</h1>
       <p className="mt-2 text-muted">

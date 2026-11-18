@@ -5,6 +5,7 @@ import AdSlot from "@/components/AdSlot";
 import CalcNotes from "@/components/CalcNotes";
 import { draws, latestDraw, TOTAL_ROUNDS } from "@/lib/draws";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { jsonLdScript } from "@/lib/json-ld";
 import {
   ALL_NUMBERS,
   coldNumbers,
@@ -60,7 +61,7 @@ export default function StatsPage() {
     <div>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }}
       />
       <h1 className="text-2xl font-extrabold">로또 번호별 통계</h1>
       <p className="mt-2 text-muted">
